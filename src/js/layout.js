@@ -1,14 +1,25 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ScrollToTop from "./component/scrollToTop";
+import ScrollToTop from "./component/scrollToTop.js";
 
-import { Home } from "./views/home";
-import { Demo } from "./views/demo";
-import { Single } from "./views/single";
+import { Home } from "./views/home.js";
+import { People } from "./views/People.js";
+import { DetailsPeople } from "./views/DetailsPeople.js"
+import { Planets } from "./views/Planets.js";
+import { DetailsPlanets } from "./views/DetailsPlanets.js";
+import { Starships } from "./views/Starships.js";
+import { DetailsShip} from "./views/DetailsShip.js";
+import { Single } from "./views/single.js";
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
+import { Navbar } from "./component/navbar.js";
+import { Footer } from "./component/footer.js";
+
+// people: https://starwars-visualguide.com/assets/img/characters/1.jpg
+// host = "https://starwars-visualguide.com/assets/img/"
+// category = { "people": "characters" }
+// id = #
+// ext = ".jpg"
 
 //create your first component
 const Layout = () => {
@@ -23,7 +34,12 @@ const Layout = () => {
 					<Navbar />
 					<Routes>
 						<Route path="/" element={<Home />} />
-						<Route path="/demo" element={<Demo />} />
+						<Route path="/people" element={<People />} />
+						<Route path="/people/:theid" element={<DetailsPeople />} />
+						<Route path="/planets" element={<Planets />} />
+						<Route path="/planets/:theid" element={<DetailsPlanets />} />
+						<Route path="/starships" element={<Starships />} />
+						<Route path="/starships/:theid" element={<DetailsShip />} />
 						<Route path="/single/:theid" element={<Single />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
